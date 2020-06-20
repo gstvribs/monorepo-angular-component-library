@@ -1,0 +1,28 @@
+{
+  "name": "@my-org/tokens",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": {
+    "name": "Gustavo Ribeiro",
+    "email": "gu_ribeiro@live.com",
+    "url": "https://twitter.com/gstvribs"
+  },
+  "license": "MIT",
+  "scripts": {
+    "prepublishOnly": "npm run clean && npm run build && npm run prepare:copy && npm run prepare:package",
+    "prepare:copy": "cp package.json dist/ && cp README.md dist/ && cp -R fonts/ dist/fonts/",
+    "prepare:package": "json -I -f dist/package.json -e this.scripts={};this.devDependencies={}",
+    "clean": "rimraf dist/",
+    "build": "npm run build:hard && npm run build:soft",
+    "build:hard": "scss-bundle -e ./main-hard.scss -o ./dist/bundle/bundle-hard.scss",
+    "build:soft": "scss-bundle -e ./main-soft.scss -o ./dist/bundle/bundle-soft.scss"
+  },
+  "devDependencies": {
+    "json": "^9.0.6",
+    "rimraf": "^3.0.2",
+    "scss-bundle": "^3.1.2"
+  }
+}

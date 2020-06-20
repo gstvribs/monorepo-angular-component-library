@@ -1,0 +1,30 @@
+@import '../../../../tokens/base/colors';
+
+.ui-button {
+  font-family: 'Montserrat', sans-serif;
+  width: 200px;
+  border-radius: 18px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 600;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &__primary {
+    background-color: $color-brand-primary-1;
+    color: $color-scale-base-0;
+  }
+
+  &__secondary {
+    color: $color-brand-primary-1;
+    background-color: $color-scale-base-0;
+  }
+
+  &__outline {
+    color: $color-brand-primary-1;
+    background-color: $color-scale-base-0;
+    border: 2px solid $color-brand-primary-1;
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "@my-org/button",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": {
+    "name": "Gustavo Ribeiro",
+    "email": "gu_ribeiro@live.com",
+    "url": "https://twitter.com/gstvribs"
+  },
+  "license": "MIT",
+  "scripts": {
+    "prepublishOnly": "npm run clean && npm run build",
+    "clean": "rimraf dist/",
+    "build": "ng-packagr -p package.json",
+    "test": "ng test button --watch=true",
+    "test:ci": "ng test button --watch=false"
+  },
+  "peerDependencies": {
+    "@angular/common": "^8.2.14",
+    "@angular/core": "^8.2.14"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  },
+  "ngPackage": {
+    "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+    "lib": {
+      "entryFile": "./src/index.ts"
+    },
+    "dest": "dist/"
+  }
+}

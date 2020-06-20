@@ -1,0 +1,154 @@
+{
+  "name": "@my-org/app",
+  "version": "0.0.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": {
+    "name": "Gustavo Ribeiro",
+    "email": "gu_ribeiro@live.com",
+    "url": "https://twitter.com/gstvribs"
+  },
+  "scripts": {
+    "commit": "git-cz",
+    "build": "bash scripts/build.sh",
+    "deploy": "bash scripts/publish.sh",
+    "format": "prettier --write components/**/*.{js,ts,scss,json}",
+    "publish:local": "lerna publish --contents dist --registry=http://localhost:4873",
+    "publish:ci": "lerna publish --contents dist --yes",
+    "lint:all": "npm run lint:ts && npm run lint:scss",
+    "lint:ts": "eslint -c .eslintrc.json ./components/ --quiet --ext .ts",
+    "lint:ts:fix": "eslint -c .eslintrc.json ./components/ --quiet --ext .ts --fix",
+    "lint:scss": "stylelint **/*.scss --config .stylelintrc.json --syntax scss",
+    "lint:scss:fix": "stylelint **/*.scss --config .stylelintrc.json --syntax scss --fix",
+    "start:sandbox": "ng serve sandbox",
+    "build:sandbox": "ng build sandbox",
+    "npm:local": "verdaccio",
+    "npm:auth": "npm config set registry http://localhost:4873/ && npm adduser --registry http://localhost:4873/ && npm run npm:reset",
+    "npm:reset": "npm config set registry https://registry.npmjs.org/",
+    "start:playground": "angular-playground",
+    "start:storybook": "npm run json:docs && start-storybook -p 5201",
+    "build:storybook": "build-storybook -c .storybook -s .storybook/public -o dist/",
+    "start:docs": "compodoc -p tsconfig.json -s -w",
+    "build:docs": "compodoc -p tsconfig.json",
+    "json:docs": "compodoc -p tsconfig.json -e json -d .",
+    "lerna:list": "lerna ls",
+    "lerna:list:changed": "lerna list --since",
+    "lerna:build": "lerna run build",
+    "lerna:build:changed": "lerna run build --since",
+    "lerna:clean": "npm run lerna:clean:artifacts && npm run lerna:clean:packages && npm run lerna:clean:root",
+    "lerna:clean:artifacts": "lerna run clean --parallel",
+    "lerna:clean:packages": "lerna clean --yes",
+    "lerna:clean:root": "rimraf node_modules && rimraf dist",
+    "lerna:test:ci": "lerna run test:ci",
+    "lerna:test:ci:changed": "lerna run test:ci --since",
+    "postinstall": "lerna bootstrap --no-ci --hoist"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "npm run lerna:test:ci:changed && npm run lint:all",
+      "post-merge": "sh .githook/post-merge.sh"
+    }
+  },
+  "jest": {
+    "preset": "jest-preset-angular",
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "modulePaths": [
+      "<rootDir>/dist"
+    ],
+    "testMatc": [
+      "<rootDir>/src/lib/*.spec.ts"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/node_modules/.*",
+      "<rootDir>/src/environments",
+      "<rootDir>/src/app/app.module.ts",
+      "<rootDir>/src/app/app-routing.module.ts"
+    ],
+    "modulePathIgnorePattern": [
+      "<rootDir>/node_modules/.*",
+      "<rootDir>/src/environments",
+      "<rootDir>/src/app/app.module.ts",
+      "<rootDir>/src/app/app-routing.module.ts"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/../../setup-jest.ts"
+    ]
+  },
+  "dependencies": {
+    "@angular/common": "^8.2.14",
+    "@angular/compiler": "^8.2.14",
+    "@angular/core": "^8.2.14",
+    "@angular/forms": "^8.2.14",
+    "@angular/platform-browser": "^8.2.14",
+    "@angular/platform-browser-dynamic": "^8.2.14",
+    "tslib": "^1.10.0",
+    "zone.js": "^0.9.1"
+  },
+  "devDependencies": {
+    "@angular-builders/jest": "^9.0.1",
+    "@angular-devkit/build-angular": "^0.803.25",
+    "@angular-devkit/build-ng-packagr": "^0.803.27",
+    "@angular-eslint/eslint-plugin": "0.0.1-alpha.32",
+    "@angular-eslint/eslint-plugin-template": "0.0.1-alpha.32",
+    "@angular-eslint/template-parser": "0.0.1-alpha.32",
+    "@angular/cli": "^8.3.26",
+    "@angular/compiler-cli": "^8.2.14",
+    "@angular/language-service": "^8.2.14",
+    "@babel/core": "^7.10.2",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@compodoc/compodoc": "^1.1.11",
+    "@lerna/filter-options": "^3.20.0",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-docs": "^5.3.19",
+    "@storybook/addon-knobs": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addon-notes": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/angular": "^5.3.19",
+    "@types/jasmine": "^3.3.8",
+    "@types/jasminewd2": "^2.0.3",
+    "@types/jest": "^25.2.1",
+    "@types/node": "^8.9.4",
+    "@typescript-eslint/eslint-plugin": "^3.3.0",
+    "@typescript-eslint/parser": "^3.3.0",
+    "angular-playground": "^6.2.0",
+    "autoprefixer": "^8.6.5",
+    "babel-loader": "^8.1.0",
+    "cz-conventional-changelog": "^3.2.0",
+    "eslint": "^7.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-jsdoc": "^27.1.2",
+    "eslint-plugin-prefer-arrow": "^1.2.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "git-cz": "^4.6.2",
+    "husky": "^4.2.5",
+    "jasmine-core": "^3.4.0",
+    "jasmine-spec-reporter": "^4.2.1",
+    "jest": "^25.2.7",
+    "lerna": "^3.22.0",
+    "ng-packagr": "^5.7.1",
+    "prettier": "^2.0.5",
+    "protractor": "^5.4.0",
+    "rimraf": "^3.0.2",
+    "stylelint": "^13.6.0",
+    "stylelint-config-prettier": "^8.0.1",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-scss": "^3.17.2",
+    "ts-node": "^7.0.0",
+    "typescript": "^3.5.3",
+    "verdaccio": "^4.6.2"
+  }
+}

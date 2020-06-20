@@ -1,0 +1,37 @@
+@import '../base/typography';
+@import '../base/colors';
+
+h1 {
+  @extend %typography-h1;
+  color: $color-scale-base-100;
+}
+
+h2 {
+  @extend %typography-h2;
+  color: $color-scale-base-100;
+}
+
+h3 {
+  @extend %typography-h3;
+  color: $color-scale-base-100;
+}
+
+h4 {
+  @extend %typography-h4;
+  color: $color-scale-base-100;
+}
+
+p {
+  @extend %typography-subtitle-1;
+  color: $color-scale-base-50;
+}
+
+p.small {
+  @extend %typography-subtitle-2;
+  color: $color-scale-base-50;
+}
+
+a {
+  @extend %typography-link-1;
+  color: $color-brand-primary-3;
+}

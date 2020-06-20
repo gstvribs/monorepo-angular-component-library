@@ -1,0 +1,117 @@
+@import './font-size';
+
+$font-typography-font-family: Montserrat;
+$font-typography-h-1-font-weight: 700;
+$font-typography-h-1-font-size: 22px;
+$font-typography-h-1-letter-spacing: 0;
+$font-typography-h-1-line-height: 32px;
+$font-typography-h-2-font-weight: 600;
+$font-typography-h-2-font-size: 20px;
+$font-typography-h-2-letter-spacing: 0;
+$font-typography-h-2-line-height: 24px;
+$font-typography-h-3-font-weight: 600;
+$font-typography-h-3-font-size: 16px;
+$font-typography-h-3-letter-spacing: 0;
+$font-typography-h-3-line-height: 24px;
+$font-typography-h-4-font-weight: 600;
+$font-typography-h-4-font-size: 14px;
+$font-typography-h-4-letter-spacing: 0;
+$font-typography-h-4-line-height: 24px;
+$font-typography-acao-1-font-weight: 700;
+$font-typography-acao-1-font-size: 12px;
+$font-typography-acao-1-letter-spacing: 0;
+$font-typography-acao-1-line-height: 24px;
+$font-typography-paragraph-1-font-weight: 500;
+$font-typography-paragraph-1-font-size: 16px;
+$font-typography-paragraph-1-letter-spacing: 0;
+$font-typography-paragraph-1-line-height: 24px;
+$font-typography-paragraph-2-font-weight: 500;
+$font-typography-paragraph-2-font-size: 14px;
+$font-typography-paragraph-2-letter-spacing: 0;
+$font-typography-paragraph-2-line-height: 24px;
+$font-typography-subtitle-1-font-weight: 500;
+$font-typography-subtitle-1-font-size: 12px;
+$font-typography-subtitle-1-letter-spacing: 0;
+$font-typography-subtitle-1-line-height: 16px;
+$font-typography-subtitle-2-font-weight: 600;
+$font-typography-subtitle-2-font-size: 12px;
+$font-typography-subtitle-2-letter-spacing: 0;
+$font-typography-subtitle-2-line-height: 16px;
+$font-typography-category-1-font-weight: 600;
+$font-typography-category-1-font-size: 12px;
+$font-typography-category-1-letter-spacing: 0;
+$font-typography-category-1-line-height: 16px;
+$font-typography-list-1-font-weight: 500;
+$font-typography-list-1-font-size: 16px;
+$font-typography-list-1-letter-spacing: 0;
+$font-typography-list-1-line-height: 24px;
+$font-typography-list-2-font-weight: 600;
+$font-typography-list-2-font-size: 16px;
+$font-typography-list-2-letter-spacing: 0;
+$font-typography-list-2-line-height: 24px;
+$font-typography-list-3-font-weight: 500;
+$font-typography-list-3-font-size: 14px;
+$font-typography-list-3-letter-spacing: 0;
+$font-typography-list-3-line-height: 24px;
+$font-typography-list-4-font-weight: 600;
+$font-typography-list-4-font-size: 14px;
+$font-typography-list-4-letter-spacing: 0;
+$font-typography-list-4-line-height: 24px;
+$font-typography-link-1-font-weight: 600;
+$font-typography-link-1-font-size: 14px;
+$font-typography-link-1-letter-spacing: 0;
+$font-typography-link-1-line-height: 24px;
+
+%typography-h1 {
+  font-family: $font-typography-font-family;
+  font-weight: $font-typography-h-1-font-weight;
+  @include font-size($font-typography-h-1-font-size);
+}
+
+%typography-h2 {
+  font-family: $font-typography-font-family;
+  font-weight: $font-typography-h-2-font-weight;
+  @include font-size($font-typography-h-2-font-size);
+}
+
+%typography-h3 {
+  font-family: $font-typography-font-family;
+  font-weight: $font-typography-h-3-font-weight;
+  @include font-size($font-typography-h-3-font-size);
+}
+
+%typography-h4 {
+  font-family: $font-typography-font-family;
+  font-weight: $font-typography-h-4-font-weight;
+  @include font-size($font-typography-h-4-font-size);
+}
+
+%typography-paragraph-1 {
+  font-family: $font-typography-font-family;
+  font-weight: $font-typography-paragraph-1-font-weight;
+  @include font-size($font-typography-paragraph-1-font-size);
+}
+
+%typography-paragraph-2 {
+  font-family: $font-typography-font-family;
+  font-weight: $font-typography-paragraph-2-font-weight;
+  @include font-size($font-typography-paragraph-2-font-size);
+}
+
+%typography-subtitle-1 {
+  font-family: $font-typography-font-family;
+  font-weight: $font-typography-subtitle-1-font-weight;
+  @include font-size($font-typography-subtitle-1-font-size);
+}
+
+%typography-subtitle-2 {
+  font-family: $font-typography-font-family;
+  font-weight: $font-typography-subtitle-2-font-weight;
+  @include font-size($font-typography-subtitle-2-font-size);
+}
+
+%typography-link-1 {
+  font-family: $font-typography-font-family;
+  font-weight: $font-typography-link-1-font-weight;
+  @include font-size($font-typography-link-1-font-size);
+}

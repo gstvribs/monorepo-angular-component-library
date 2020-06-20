@@ -1,0 +1,16 @@
+$vw-viewport: 360;
+$vw-enable: true;
+
+@function font-size-mixin($font) {
+  @if $vw-enable {
+    $vw-context: $vw-viewport * 0.01 * 1px;
+    @return $font / $vw-context * 1vw;
+  }
+
+  @return $font;
+}
+
+@mixin font-size($font) {
+  font-size: $font;
+  font-size: font-size-mixin($font);
+}
