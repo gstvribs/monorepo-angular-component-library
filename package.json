@@ -137,7 +137,7 @@
     "husky": "^4.2.5",
     "jest": "^25.2.7",
     "lerna": "^3.22.0",
-    "ng-packagr": "^5.7.1",
+    "ng-packagr": "^9.1.5",
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
     "stylelint": "^13.6.0",
