@@ -1,8 +1,8 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 
-<Meta title="Design System / README" />
+<Meta title="The Design System / README" />
 
-<h1 align="center">Your Design System</h1>
+<h1 align="center">The Design System</h1>
 
 > This is a proof of concept of a monorepo structure for serving angular components and design tokens
 
@@ -33,10 +33,10 @@ This is a monorepo repository using [Lerna](https://lerna.js.org/), [Commitzen](
 
 List of packages containing in this repository:
 
-| Name of package                       | Description                                                             |
-| ------------------------------------- | ----------------------------------------------------------------------- |
-| [`@my-org/components`](./components/) | Angular components with each package.json file                          |
-| [`@my-org/tokens`](./tokens)          | Design language elements like: colors, typography, iconography and more |
+| Name of package                                | Description                                                             |
+| ---------------------------------------------- | ----------------------------------------------------------------------- |
+| [`@thedesignsystem/components`](./components/) | Angular components with each package.json file                          |
+| [`@thedesignsystem/tokens`](./tokens)          | Design language elements like: colors, typography, iconography and more |
 
 ## Setup
 
@@ -62,25 +62,25 @@ First of all, your repository needs to be looking at the npm private repository,
 
 ```
 registry = https://registry.npmjs.org/
-@my-org:registry=http://localhost:4873/
+@thedesignsystem:registry=http://localhost:4873/
 ```
 
 ### Installing components
 
 All components in this repository are installed separately, that is, each component has its own npm package, for example if you want to install the button component:
 
-`npm i @my-org/button`
+`npm i @thedesignsystem/button`
 
 ### Installing tokens
 
 This repository has a monorepo that gives you all the tokens of Design System's design language, styles and elements such as: colors, typography, elevations, embroidery, etc. To install just install the package in your repository:
 
-`npm i @my-org/tokens`
+`npm i @thedesignsystem/tokens`
 
 In `angular.json` at `styles` node add the global `scss` file.
 
 ```json
 "styles": [
-  "node_modules/@my-org/tokens/bundle/bundle-hard.scss"
+  "node_modules/@thedesignsystem/tokens/bundle/bundle-hard.scss"
 ]
 ```

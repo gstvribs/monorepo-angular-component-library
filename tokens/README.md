@@ -12,6 +12,6 @@ In `angular.json` at `styles` node add the global `scss` file.
 
 ```json
 "styles": [
-  "node_modules/@my-org/tokens/bundle/bundle-<hard or soft>.scss"
+  "node_modules/@thedesignsystem/tokens/bundle/bundle-<hard or soft>.scss"
 ]
 ```
