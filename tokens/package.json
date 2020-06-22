@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/gstvribs/monorepo-angular-component-library.git"
   },
   "author": {
     "name": "Gustavo Ribeiro",

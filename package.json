@@ -4,7 +4,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/gstvribs/monorepo-angular-component-library.git"
   },
   "author": {
     "name": "Gustavo Ribeiro",
@@ -14,7 +14,9 @@
   "scripts": {
     "commit": "git-cz",
     "build": "bash scripts/build.sh",
-    "deploy": "bash scripts/publish.sh",
+    "deploy": "bash scripts/deploy.sh",
+    "test": "npm run lerna:test:ci:changed",
+    "lint": "npm run lint:all",
     "format": "prettier --write components/**/*.{js,ts,scss,json}",
     "publish:local": "lerna publish --contents dist --registry=http://localhost:4873",
     "publish:ci": "lerna publish --contents dist --yes",
@@ -30,7 +32,7 @@
     "npm:reset": "npm config set registry https://registry.npmjs.org/",
     "start:playground": "angular-playground",
     "start:storybook": "npm run json:docs && start-storybook -p 5201",
-    "build:storybook": "build-storybook -c .storybook -s .storybook/public -o dist/",
+    "build:storybook": "npm run json:docs && build-storybook -c .storybook -s .storybook/public -o dist/",
     "start:docs": "compodoc -p tsconfig.json -s -w",
     "build:docs": "compodoc -p tsconfig.json",
     "json:docs": "compodoc -p tsconfig.json -e json -d .",
@@ -117,8 +119,6 @@
     "@storybook/addon-notes": "^5.3.19",
     "@storybook/addons": "^5.3.19",
     "@storybook/angular": "^5.3.19",
-    "@types/jasmine": "^3.3.8",
-    "@types/jasminewd2": "^2.0.3",
     "@types/jest": "^25.2.1",
     "@types/node": "^8.9.4",
     "@typescript-eslint/eslint-plugin": "^3.3.0",
@@ -135,13 +135,10 @@
     "eslint-plugin-prettier": "^3.1.4",
     "git-cz": "^4.6.2",
     "husky": "^4.2.5",
-    "jasmine-core": "^3.4.0",
-    "jasmine-spec-reporter": "^4.2.1",
     "jest": "^25.2.7",
     "lerna": "^3.22.0",
     "ng-packagr": "^5.7.1",
     "prettier": "^2.0.5",
-    "protractor": "^5.4.0",
     "rimraf": "^3.0.2",
     "stylelint": "^13.6.0",
     "stylelint-config-prettier": "^8.0.1",

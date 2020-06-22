@@ -59,7 +59,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.lib.json",
             "assets": ["src/favicon.ico"],
-            "styles": ["node_modules/@my-org/tokens/bundle/bundle-hard.scss"],
+            "styles": ["node_modules/@my-org/tokens/bundle/bundle-soft.scss"],
             "scripts": []
           }
         },
