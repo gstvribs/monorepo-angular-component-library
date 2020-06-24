@@ -16,7 +16,7 @@
 
 ## Getting started
 
-This is a monorepo repository using [Lerna](https://lerna.js.org/), [Commitzen](http://commitizen.github.io/cz-cli/) and [Conventional Commits](https://conventionalcommits.org) to maintain and manage component versions and for documentation, we use [Storybook](https://storybook.js.org/) and [Compodoc](https://compodoc.app/), [access by clicking here](https://ds.gustavoribeiro.dev/storybook/)
+This is a monorepo repository using [Lerna](https://lerna.js.org/), [Commitzen](http://commitizen.github.io/cz-cli/) and [Conventional Commits](https://conventionalcommits.org) to maintain and manage component versions and for documentation, we use [Storybook](https://storybook.js.org/) and [Compodoc](https://compodoc.app/), you can access by clicking [here](https://thedesignsystem.gustavoribeiro.dev/)
 
 List of packages containing in this repository:
 
