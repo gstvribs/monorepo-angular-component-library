@@ -1,6 +1,6 @@
 import { ButtonComponent } from './button.component';
 import { action } from '@storybook/addon-actions';
-import { text, select, withKnobs } from '@storybook/addon-knobs';
+import { text, select, boolean, withKnobs } from '@storybook/addon-knobs';
 
 export default {
   title: 'Button',
@@ -27,6 +27,8 @@ export const primario = () => ({
     action: select('action', optionsAction, defaultValueAction),
     type: select('type', optionsType, 'primary'),
     text: text('text', 'Click Here!'),
+    ariaPressed: boolean('ariaPressed', false),
+    ariaLabel: text('ariaLabel', ''),
     onClick: action('button-click'),
   },
 });
@@ -37,6 +39,8 @@ export const segundario = () => ({
     action: select('action', optionsAction, defaultValueAction),
     type: select('type', optionsType, 'secondary'),
     text: text('text', 'Click Here!'),
+    ariaPressed: boolean('ariaPressed', false),
+    ariaLabel: text('ariaLabel', ''),
     onClick: action('button-click'),
   },
 });
@@ -47,6 +51,8 @@ export const outline = () => ({
     action: select('action', optionsAction, defaultValueAction),
     type: select('type', optionsType, 'outline'),
     text: text('text', 'Click Here!'),
+    ariaPressed: boolean('ariaPressed', false),
+    ariaLabel: text('ariaLabel', ''),
     onClick: action('button-click'),
   },
 });

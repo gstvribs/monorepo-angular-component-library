@@ -1,6 +1,9 @@
 <button
   class="ui-button ui-button__{{ type }}"
   type="{{ action }}"
+  role="button"
+  [attr.aria-label]="ariaLabel"
+  [attr.aria-pressed]="ariaPressed"
   (click)="onClick()"
 >
   {{ text }}

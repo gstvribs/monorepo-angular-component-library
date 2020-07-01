@@ -7,11 +7,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ButtonComponent implements OnInit {
   @Input() text: string;
+  @Input() ariaLabel: string;
+  @Input() ariaPressed: boolean;
   @Input() type: 'primary' | 'secondary' | 'outline';
   @Input() action: 'button' | 'submit' | 'reset';
   @Input() onClick: () => void;
 
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+  ngOnInit(): void {}
 }
