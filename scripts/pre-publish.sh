@@ -5,6 +5,9 @@ set -e # exit with nonzero exit code if anything fails
 # Lists all modified projects and will be published
 npm run lerna:list:changed
 
+# Build all changed projects
+npm run lerna:build:changed
+
 # Run lint on all projects
 npm run lint:all
 

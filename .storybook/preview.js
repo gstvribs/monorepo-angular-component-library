@@ -11,18 +11,11 @@ const newViewports = {
       height: '640px',
     },
   },
-  tablet: {
-    name: 'Tablet',
-    styles: {
-      width: '1024px',
-      height: '981px',
-    },
-  },
   web: {
     name: 'Web',
     styles: {
       width: '1920px',
-      height: '810px',
+      height: '820px',
     },
   },
 };
@@ -38,6 +31,6 @@ addParameters({
   },
   viewport: {
     viewports: newViewports,
-    defaultViewport: 'someDefault',
+    defaultViewport: 'mobile',
   },
 });

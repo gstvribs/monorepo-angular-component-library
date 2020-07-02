@@ -14,12 +14,11 @@
   "scripts": {
     "commit": "git-cz",
     "build": "bash scripts/build.sh",
-    "deploy": "bash scripts/deploy.sh",
-    "test": "npm run lerna:test:ci:changed",
-    "lint": "npm run lint:all",
     "format": "prettier --write components/**/*.{js,ts,scss,json}",
-    "publish:local": "lerna publish --contents dist --registry=http://localhost:4873",
-    "publish:ci": "lerna publish --contents dist --yes",
+    "publish:prepare": "bash scripts/pre-publish.sh",
+    "publish:local": "npm run publish:prepare && lerna publish --contents dist --registry=http://localhost:4873",
+    "publish:ci": "npm run publish:prepare && lerna publish --contents dist --yes",
+    "package:dump": "npm run lerna:build && lerna publish from-package --contents dist --registry=http://localhost:4873",
     "lint:all": "npm run lint:ts && npm run lint:scss",
     "lint:ts": "eslint -c .eslintrc.json ./components/ --quiet --ext .ts",
     "lint:ts:fix": "eslint -c .eslintrc.json ./components/ --quiet --ext .ts --fix",
@@ -31,7 +30,7 @@
     "npm:auth": "npm config set registry http://localhost:4873/ && npm adduser --registry http://localhost:4873/ && npm run npm:reset",
     "npm:reset": "npm config set registry https://registry.npmjs.org/",
     "start:playground": "angular-playground",
-    "start:storybook": "npm run json:docs && start-storybook -p 5201",
+    "start:storybook": "npm run json:docs && start-storybook -p 4203",
     "build:storybook": "npm run json:docs && build-storybook -c .storybook -s .storybook/public -o dist/",
     "start:docs": "compodoc -p tsconfig.json -s -w",
     "build:docs": "compodoc -p tsconfig.json",
@@ -68,7 +67,7 @@
     "modulePaths": [
       "<rootDir>/dist"
     ],
-    "testMatc": [
+    "testMatch": [
       "<rootDir>/src/lib/*.spec.ts"
     ],
     "coveragePathIgnorePatterns": [
@@ -77,7 +76,7 @@
       "<rootDir>/src/app/app.module.ts",
       "<rootDir>/src/app/app-routing.module.ts"
     ],
-    "modulePathIgnorePattern": [
+    "modulePathIgnorePatterns": [
       "<rootDir>/node_modules/.*",
       "<rootDir>/src/environments",
       "<rootDir>/src/app/app.module.ts",
@@ -118,6 +117,7 @@
     "@storybook/addon-knobs": "^5.3.19",
     "@storybook/addon-links": "^5.3.19",
     "@storybook/addon-notes": "^5.3.19",
+    "@storybook/addon-viewport": "^5.3.19",
     "@storybook/addons": "^5.3.19",
     "@storybook/angular": "^5.3.19",
     "@types/jest": "^25.2.1",

@@ -12,7 +12,6 @@
   },
   "license": "MIT",
   "scripts": {
-    "prepublishOnly": "npm run clean && npm run build",
     "clean": "rimraf dist/",
     "build": "ng-packagr -p package.json",
     "test": "ng test button --watch=true",
