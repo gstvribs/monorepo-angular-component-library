@@ -17,6 +17,3 @@ npm run lerna:test:ci:changed
 # Changing name and user to differentiate commit and tag from the pipeline
 git config user.name "design-system-bot"
 git config user.email "design-system@bot.com"
-
-# Version tags and publication of modified packages
-npm run publish:ci
