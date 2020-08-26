@@ -14,6 +14,7 @@
   "scripts": {
     "commit": "git-cz",
     "build": "bash scripts/build.sh",
+    "chromatic": "npx chromatic --project-token gq18tpvbbj8",
     "format": "prettier --write components/**/*.{js,ts,scss,json}",
     "publish:prepare": "bash scripts/pre-publish.sh",
     "publish:local": "npm run publish:prepare && lerna publish --contents dist --registry=http://localhost:4873",
@@ -55,8 +56,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "npm run lerna:test:ci:changed && npm run lint:all",
-      "post-merge": "sh .githook/post-merge.sh"
+      "pre-commit": "npm run lerna:test:ci:changed && npm run lint:all"
     }
   },
   "jest": {
@@ -112,14 +112,14 @@
     "@commitlint/config-conventional": "^8.3.4",
     "@compodoc/compodoc": "^1.1.11",
     "@lerna/filter-options": "^3.20.0",
-    "@storybook/addon-actions": "^5.3.19",
-    "@storybook/addon-docs": "^5.3.19",
-    "@storybook/addon-knobs": "^5.3.19",
-    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addon-actions": "^6.0.18",
+    "@storybook/addon-docs": "^6.0.18",
+    "@storybook/addon-knobs": "^6.0.18",
+    "@storybook/addon-links": "^6.0.18",
     "@storybook/addon-notes": "^5.3.19",
-    "@storybook/addon-viewport": "^5.3.19",
-    "@storybook/addons": "^5.3.19",
-    "@storybook/angular": "^5.3.19",
+    "@storybook/addon-viewport": "^6.0.18",
+    "@storybook/addons": "^6.0.18",
+    "@storybook/angular": "^6.0.18",
     "@types/jest": "^25.2.1",
     "@types/node": "^8.9.4",
     "@typescript-eslint/eslint-plugin": "^3.3.0",
@@ -127,6 +127,7 @@
     "angular-playground": "^6.2.0",
     "autoprefixer": "^8.6.5",
     "babel-loader": "^8.1.0",
+    "chromatic": "^5.1.0",
     "cz-conventional-changelog": "^3.2.0",
     "eslint": "^7.2.0",
     "eslint-config-prettier": "^6.11.0",
