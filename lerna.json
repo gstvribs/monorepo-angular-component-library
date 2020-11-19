@@ -1,19 +1,23 @@
 {
-  "packages": [
-    "components/*",
-    "tokens/"
-  ],
+  "packages": ["components/*", "tokens/"],
   "version": "independent",
   "npmClient": "npm",
   "command": {
     "version": {
+      "changelogPreset": "conventional-changelog-angular",
       "conventionalCommits": true,
-      "changelogPreset": "conventional-changelog-angular"
+      "allowBranch": ["master", "release/*"]
     },
     "publish": {
-      "ignoreChanges": ["ignored-file", "**/__fixtures__/**", "**/__tests__/**", "*.md", "*.json", "*.stories.ts", "*.spec.ts", "*.sandbox.ts"],
-      "conventionalCommits": true,
-      "access": "public",
+      "ignoreChanges": [
+        "ignored-file",
+        "**/__fixtures__/**",
+        "**/__tests__/**",
+        "*.md",
+        "*.stories.ts",
+        "*.spec.ts",
+        "*.sandbox.ts"
+      ],
       "message": "chore(release): publish"
     }
   }

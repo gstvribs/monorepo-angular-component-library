@@ -36,14 +36,13 @@ Local setup to run this project locally
 
 ### Configuration
 
-- 1. Install all the dependencies: `npm i`
-- 2. You can see the components of this repo by running one of these two projects:
-  - 2.1. Angular Playground by running `npm run playground`
-  - 2.2. Storybook by running `npm run start:storybook`
+- Install all the dependencies: `npm i`
+- Build all the components: `npm run build`
+- You can see the components of this repo by running one of these two projects:
+  - Angular Playground by running `npm run playground`
+  - Storybook by running `npm run start:storybook`
 
-## Configuring this project and how to install them at your project
-
-All of these steps above are **already** configured at the project `sandbox` at the path `projects\sandbox` at this repo, this is just an sample.
+## Configure this project and how to install them at your project
 
 First of all, your repository needs to be looking at the npm private repository, for that, create a `.npmrc` file at the root of your project and add the private repository:
 

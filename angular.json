@@ -2,51 +2,8 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "defaultProject": "sandbox",
+  "defaultProject": "playground",
   "projects": {
-    "sandbox": {
-      "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
-      "root": "projects/sandbox",
-      "sourceRoot": "projects/sandbox/src",
-      "prefix": "app",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/sandbox",
-            "index": "src/index.html",
-            "main": "projects/sandbox/src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.app.json",
-            "aot": false,
-            "assets": ["projects/sandbox/src/favicon.ico"],
-            "styles": [
-              "node_modules/@thedesignsystem/tokens/bundle/bundle-hard.scss"
-            ],
-            "scripts": []
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "sandbox:build",
-            "open": true,
-            "port": 4202
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "sandbox:build"
-          }
-        }
-      }
-    },
     "playground": {
       "root": "",
       "sourceRoot": "src",
@@ -81,22 +38,6 @@
       "projectType": "library",
       "root": "components/button",
       "sourceRoot": "projects/button/src",
-      "prefix": "ui",
-      "architect": {
-        "test": {
-          "builder": "@angular-builders/jest:run",
-          "options": {
-            "no-cache": true,
-            "coverage": true,
-            "tsConfig": "../../tsconfig.spec.json"
-          }
-        }
-      }
-    },
-    "tag": {
-      "projectType": "library",
-      "root": "components/tag",
-      "sourceRoot": "projects/tag/src",
       "prefix": "ui",
       "architect": {
         "test": {

@@ -13,23 +13,23 @@
   },
   "scripts": {
     "commit": "git-cz",
-    "build": "bash scripts/build.sh",
     "chromatic": "npx chromatic --project-token gq18tpvbbj8",
+    "build": "npm run lerna:build",
+    "build:static": "bash scripts/build.sh",
+    "test": "npm run lerna:test:ci:changed",
+    "lint": "npm run lint:ts && npm run lint:scss",
     "format": "prettier --write components/**/*.{js,ts,scss,json}",
     "publish:prepare": "bash scripts/pre-publish.sh",
     "publish:local": "npm run publish:prepare && lerna publish --contents dist --registry=http://localhost:4873",
-    "publish:ci": "npm run publish:prepare && lerna publish --contents dist --yes",
     "package:dump": "npm run lerna:build && lerna publish from-package --contents dist --registry=http://localhost:4873",
-    "lint:all": "npm run lint:ts && npm run lint:scss",
-    "lint:ts": "eslint -c .eslintrc.json ./components/ --quiet --ext .ts",
-    "lint:ts:fix": "eslint -c .eslintrc.json ./components/ --quiet --ext .ts --fix",
-    "lint:scss": "stylelint **/*.scss --config .stylelintrc.json --syntax scss",
-    "lint:scss:fix": "stylelint **/*.scss --config .stylelintrc.json --syntax scss --fix",
-    "start:sandbox": "ng serve sandbox",
-    "build:sandbox": "ng build sandbox",
-    "npm:local": "verdaccio",
-    "npm:auth": "npm config set registry http://localhost:4873/ && npm adduser --registry http://localhost:4873/ && npm run npm:reset",
-    "npm:reset": "npm config set registry https://registry.npmjs.org/",
+    "lint:ts": "eslint -c .eslintrc ./components/ --quiet --ext .ts",
+    "lint:ts:fix": "eslint -c .eslintrc ./components/ --quiet --ext .ts --fix",
+    "lint:scss": "stylelint **/*.scss --config .stylelintrc --syntax scss",
+    "lint:scss:fix": "stylelint **/*.scss --config .stylelintrc --syntax scss --fix",
+    "registry:local": "verdaccio",
+    "registry:auth": "npm config set registry http://localhost:4873/ && npm adduser --registry http://localhost:4873/ && npm run npm:reset",
+    "registry:reset": "npm config set registry https://registry.npmjs.org/",
+    "registry:dump": "npm run lerna:build && lerna publish from-package --contents dist --registry=http://localhost:4873",
     "start:playground": "angular-playground",
     "start:storybook": "npm run json:docs && start-storybook -p 4203",
     "build:storybook": "npm run json:docs && build-storybook -c .storybook -s .storybook/public -o dist/",
@@ -40,13 +40,13 @@
     "lerna:list:changed": "lerna list --since",
     "lerna:build": "lerna run build",
     "lerna:build:changed": "lerna run build --since",
+    "lerna:test:ci": "lerna run test:ci",
+    "lerna:test:ci:changed": "lerna run test:ci --since",
     "lerna:clean": "npm run lerna:clean:artifacts && npm run lerna:clean:packages && npm run lerna:clean:root",
     "lerna:clean:artifacts": "lerna run clean --parallel",
     "lerna:clean:packages": "lerna clean --yes",
     "lerna:clean:root": "rimraf node_modules && rimraf dist",
-    "lerna:test:ci": "lerna run test:ci",
-    "lerna:test:ci:changed": "lerna run test:ci --since",
-    "postinstall": "lerna bootstrap --no-ci --hoist"
+    "postinstall": "lerna bootstrap --hoist"
   },
   "config": {
     "commitizen": {
@@ -56,7 +56,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "npm run lerna:test:ci:changed && npm run lint:all"
+      "pre-commit": "npm run build && npm run lint && npm run test"
     }
   },
   "jest": {
@@ -68,19 +68,15 @@
       "<rootDir>/dist"
     ],
     "testMatch": [
-      "<rootDir>/src/lib/*.spec.ts"
+      "<rootDir>/src/**/*.spec.ts"
     ],
     "coveragePathIgnorePatterns": [
-      "<rootDir>/node_modules/.*",
-      "<rootDir>/src/environments",
-      "<rootDir>/src/app/app.module.ts",
-      "<rootDir>/src/app/app-routing.module.ts"
+      "<rootDir>/node_modules/*",
+      "<rootDir>/**/node_modules/*"
     ],
     "modulePathIgnorePatterns": [
-      "<rootDir>/node_modules/.*",
-      "<rootDir>/src/environments",
-      "<rootDir>/src/app/app.module.ts",
-      "<rootDir>/src/app/app-routing.module.ts"
+      "<rootDir>/node_modules/*",
+      "<rootDir>/**/node_modules/*"
     ],
     "setupFilesAfterEnv": [
       "<rootDir>/../../setup-jest.ts"
@@ -147,7 +143,7 @@
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-scss": "^3.17.2",
     "ts-node": "^7.0.0",
-    "typescript": "^3.5.3",
+    "typescript": "~3.5.3",
     "verdaccio": "^4.6.2"
   }
 }
